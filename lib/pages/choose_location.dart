@@ -23,7 +23,6 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: RaisedButton(
         onPressed: () {
           setState(() {
-
           });
         },
         child: const Text('counter is '),
