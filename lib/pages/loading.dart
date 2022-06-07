@@ -11,15 +11,17 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  void getData() async {
+  void getTime() async {
 
-    Response response = await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
     Map data;
+    Response response;
+
+    //make the request
+    response = await get(Uri.parse("https://worldtimeapi.org/api/timezone/Europe/Madrid"));
 
     data = jsonDecode(response.body);
 
     print(data);
-    print(data['title']);
   }
 
   @override
@@ -27,7 +29,7 @@ class _LoadingState extends State<Loading> {
 
     super.initState();
 
-    getData();
+    getTime();
   }
 
   @override
