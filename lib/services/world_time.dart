@@ -38,11 +38,11 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset)));
 
       // set the time property
-      isDayTime = (now.hour > 6 && now.hour < 21) ? true : false;
+      isDayTime = now.hour > 6 && now.hour < 20;
+
       time = DateFormat.jm().format(now);
     } catch (e) {
 
-      print('caught error: $e');
       time = 'could not get time data';
     }
 

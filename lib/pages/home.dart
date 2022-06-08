@@ -14,15 +14,29 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
+    String bgImage = 'night.png';
+    Color bgColor = Colors.indigo[700] as Color;
+
     data =  ModalRoute.of(context)!.settings.arguments as Map;
     print(data);
 
     // set background
-    String bgImage = data['isDaytime'] ? 'day.png': 'night.png';
+    if (data['isDayTime']) {
+
+      bgImage = 'day.png';
+      bgColor = Colors.blue;
+    }
 
     return Scaffold(
+      backgroundColor: bgColor,
       body: SafeArea(
           child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/$bgImage'),
+                fit: BoxFit.cover,
+              ),
+            ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
               child: Column(
@@ -31,8 +45,16 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         Navigator.pushNamed(context, '/location');
                       },
-                      icon: const Icon(Icons.edit_location),
-                      label: const Text('Edit Location'),
+                      icon: Icon(
+                        Icons.edit_location,
+                        color: Colors.grey[300],
+                      ),
+                      label: Text(
+                          'Edit Location',
+                        style: TextStyle(
+                          color: Colors.grey[300],
+                        ),
+                      ),
                   ),
                   const SizedBox(height: 20),
                   Row(
@@ -43,6 +65,7 @@ class _HomeState extends State<Home> {
                         style: const TextStyle(
                           fontSize: 28,
                           letterSpacing: 2,
+                          color: Colors.white,
                         ),
                       )
                     ],
@@ -51,7 +74,8 @@ class _HomeState extends State<Home> {
                   Text(
                     data['time'],
                     style: const TextStyle(
-                      fontSize: 66
+                      fontSize: 66,
+                      color: Colors.white,
                     ),
                   ),
                 ],
