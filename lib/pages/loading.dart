@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -10,19 +9,6 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-
-  void getTime() async {
-
-    Map data;
-    Response response;
-
-    //make the request
-    response = await get(Uri.parse("https://worldtimeapi.org/api/timezone/Europe/Madrid"));
-
-    data = jsonDecode(response.body);
-
-    print(data);
-  }
 
   @override
   void initState() {
