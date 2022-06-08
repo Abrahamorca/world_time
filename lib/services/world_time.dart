@@ -10,7 +10,7 @@ class WorldTime {
 
   WorldTime({ required this.location, required this.flag, required this.url} );
 
-  void getTime() async {
+  Future<void> getTime() async {
 
     Map data;
     Response response;
