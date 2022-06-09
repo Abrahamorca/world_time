@@ -29,7 +29,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
     //navigate to home screen
     if (!mounted) return;
-    
+
     Navigator.pop(context, {
       'location': instance.location,
       'flag': instance.flag,
