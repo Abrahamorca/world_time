@@ -30,6 +30,10 @@ class _HomeState extends State<Home> {
 
       bgImage = 'day.png';
       bgColor = Colors.blue;
+    } else {
+
+      bgImage = 'night.png';
+      bgColor = Colors.indigoAccent;
     }
 
     return Scaffold(
